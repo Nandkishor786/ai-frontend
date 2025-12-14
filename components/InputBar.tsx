@@ -1,7 +1,17 @@
-import { useState } from "react";
+import React from "react";
 
-const InputBar = ({ currentMessage, setCurrentMessage, onSubmit }) => {
-  const handleChange = (e) => {
+interface InputBarProps {
+  currentMessage: string;
+  setCurrentMessage: React.Dispatch<React.SetStateAction<string>>;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+const InputBar = ({
+  currentMessage,
+  setCurrentMessage,
+  onSubmit,
+}: InputBarProps) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentMessage(e.target.value);
   };
 
@@ -27,6 +37,7 @@ const InputBar = ({ currentMessage, setCurrentMessage, onSubmit }) => {
             ></path>
           </svg>
         </button>
+
         <input
           type="text"
           placeholder="Type a message"
@@ -34,6 +45,7 @@ const InputBar = ({ currentMessage, setCurrentMessage, onSubmit }) => {
           onChange={handleChange}
           className="flex-grow px-4 py-2 bg-transparent focus:outline-none text-gray-700"
         />
+
         <button
           type="button"
           className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-all duration-200"
@@ -53,6 +65,7 @@ const InputBar = ({ currentMessage, setCurrentMessage, onSubmit }) => {
             ></path>
           </svg>
         </button>
+
         <button
           type="submit"
           className="bg-gradient-to-r from-teal-500 to-teal-400 hover:from-teal-600 hover:to-teal-500 rounded-full p-3 ml-2 shadow-md transition-all duration-200 group"

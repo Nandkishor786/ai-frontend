@@ -4,9 +4,17 @@ interface SearchInfo {
   stages: string[];
   query: string;
   urls: string[] | string;
-  error?: string;   
+  error?: string;
 }
 
+interface Message {
+  id: number;
+  content: string;
+  isUser: boolean;
+  type: string;
+  isLoading?: boolean;
+  searchInfo?: SearchInfo;
+}
 
 const PremiumTypingAnimation = () => {
   return (
@@ -142,7 +150,7 @@ const SearchStages = ({
   );
 };
 
-const MessageArea = ({ messages }) => {
+const MessageArea = ({ messages }: { messages: Message[] }) => {
   return (
     <div
       className="flex-grow overflow-y-auto bg-[#FCFCF8] border-b border-gray-100"

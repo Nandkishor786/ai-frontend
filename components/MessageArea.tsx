@@ -1,5 +1,11 @@
 import React from "react";
 
+interface SearchInfo {
+  stages: string[];
+  query: string;
+  urls: string[];
+}
+
 const PremiumTypingAnimation = () => {
   return (
     <div className="flex items-center">
@@ -21,7 +27,11 @@ const PremiumTypingAnimation = () => {
   );
 };
 
-const SearchStages = ({ searchInfo }) => {
+const SearchStages = ({
+  searchInfo,
+}: {
+  searchInfo: SearchInfo | undefined;
+}) => {
   if (!searchInfo || !searchInfo.stages || searchInfo.stages.length === 0)
     return null;
 

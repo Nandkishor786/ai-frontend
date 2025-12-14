@@ -96,7 +96,7 @@ const Home = () => {
         // Connect to SSE endpoint using EventSource(provied by browser to listening the all events comming from server and comsumed them also)
         const eventSource = new EventSource(url);
         let streamedContent = "";
-        let searchData = null;
+        let searchData: SearchInfo | null = null;
         let hasReceivedContent = false;
 
         // Process incoming messages

@@ -4,7 +4,9 @@ interface SearchInfo {
   stages: string[];
   query: string;
   urls: string[] | string;
+  error?: string;   
 }
+
 
 const PremiumTypingAnimation = () => {
   return (
